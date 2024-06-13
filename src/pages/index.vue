@@ -2,9 +2,7 @@
 const name = ref('')
 
 const columns = ref([])
-
 const value = ref('id_card')
-
 function handleConfirm({ value }) {
   value.value = value
 }
@@ -22,19 +20,7 @@ console.log(columns)
 </script>
 
 <template>
-  <div>
-    <TheLogo />
-
-    <div py-4 />
-
-    <TheInput v-model:value="name" placeholder="What's your name?" />
-    <wd-picker v-model="value" :columns="columns" label="单列选项" @confirm="handleConfirm" />
-    <div>
-      <button m-3 text-sm btn :disabled="!name" @click="router.push(`/pages/hi?name=${name}`)">
-        Go
-      </button>
-    </div>
-  </div>
+  <wd-picker v-model="value" :columns="columns" label="单列选项" @confirm="handleConfirm" />
 </template>
 
 <route lang="yaml">
